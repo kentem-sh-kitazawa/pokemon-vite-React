@@ -1,8 +1,12 @@
 
 .pokemon-card{
-  background-color: red;
+  background-color: pink;
 }
 
 li{
   list-style:none;
+  width: 25%;
+  text-align: center;
+  margin: 1%;
 }
+
