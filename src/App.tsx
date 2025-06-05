@@ -1,7 +1,8 @@
 import "./App.css";
 import axios from "axios";
-import { useState, useEffect, useContext, createContext } from "react";
-// import PokemonList from './components/pokemonList';
+import { useState, useEffect } from "react";
+import PokemonCard from "./components/PokemonCard";
+import PageButton from "./components/PageButton";
 
 function App() {
   const initialUrl = "https://pokeapi.co/api/v2/pokemon";
@@ -43,33 +44,19 @@ function App() {
   }, [pokemonUrls]);
 
   //確認用
-  useEffect(() => {
-    console.log(pokemonData);
-  }, [pokemonData]);
+  // useEffect(() => {
+  //   console.log(pokemonData);
+  // }, [pokemonData]);
 
   return (
     <div className="App">
-      {pokemonData.map((pokemon) => (
-        <ul key={pokemon.name}>
-          {/* PokemonListに移動 */}
-          <img src={pokemon.sprites.front_default} alt="" />
-          <h3 key={pokemon.name}>{pokemon.name}</h3>
-          <p>タイプ</p>
-          {pokemon.types.map((type:any)=>(
-            <p>{type.type.name}</p>
-          ))}
-          <p>重さ:{pokemon.weight}</p>
-          <p>高さ:{pokemon.height}</p>
-          {pokemon.abilities.map((ability:any)=>(
-          <p>アビリティ:{ability.ability.name}</p>
-          ))}
-        </ul>
-      ))}
-      {/* 20項目を表示する */}
-      {/* 前へボタン */}
-      <button>前へ</button>
-      {/* 次へボタン */}
-      <button>次へ</button>
+      <ul>
+
+        {pokemonData.map((pokemon) => (
+          <PokemonCard key={pokemon.name} pokemon={pokemon} />
+        ))}
+      </ul>
+      <PageButton />
     </div>
   );
 }
