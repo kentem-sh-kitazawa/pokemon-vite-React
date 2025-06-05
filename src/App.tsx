@@ -51,7 +51,6 @@ function App() {
   return (
     <div className="App">
       <ul>
-
         {pokemonData.map((pokemon) => (
           <PokemonCard key={pokemon.name} pokemon={pokemon} />
         ))}
